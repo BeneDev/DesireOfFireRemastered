@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d74048ca150d04645ba342399494e78c
-timeCreated: 1517306737
+guid: 8c8d05b050494e14196ca74f84345658
+timeCreated: 1517306751
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,7 +10,7 @@ ModelImporter:
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube
+    4300000: Sphere
   externalObjects: {}
   materials:
     importMaterials: 1
