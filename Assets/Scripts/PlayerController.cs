@@ -5,9 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     Vector3 fwd;
-    public int damage = 10;
-    public int defense = 5;
-    private int health = 100;
+    private int baseDamage = 10;
+    public int damage;
+    public int baseDefense = 5;
+    public int defense;
+    private int health;
+    private int maxHealth = 100;
     private int level = 1;
     private int exp = 0;
     private int expToNextLevel = 10;
@@ -22,6 +25,13 @@ public class PlayerController : MonoBehaviour {
     float turnAmount;
     float forwardAmount;
 
+    private void Awake()
+    {
+        health = maxHealth;
+        damage = baseDamage;
+        defense = baseDefense;
+    }
+
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -30,6 +40,18 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update ()
+    {
+        if(exp >= expToNextLevel)
+        {
+            int overExp = exp - expToNextLevel;
+            level++;
+            exp = overExp;
+        }
+        //damage = baseDamage * level;
+        //defense = baseDefense * level;
+    }
+
+    private void LateUpdate()
     {
         Shooting();
     }
@@ -56,7 +78,6 @@ public class PlayerController : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            print("turn fucking right");
             transform.rotation = Quaternion.Euler(0, 360f, 0);
             GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, player.transform.rotation);
             projectile.GetComponent<ProjectileController>().SetDirection(fwd);
@@ -74,6 +95,11 @@ public class PlayerController : MonoBehaviour {
         moveDirection = new Vector3(-v, 0, h);
         // pass all parameters to the character control script
         Move(moveDirection);
+    }
+
+    public void GainExp(int p_exp)
+    {
+        exp += p_exp;
     }
 
     public void Move(Vector3 move)

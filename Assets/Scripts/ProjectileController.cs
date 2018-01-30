@@ -28,7 +28,7 @@ public class ProjectileController : MonoBehaviour {
 
     IEnumerator DeleteAfterTime()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
     }
 }

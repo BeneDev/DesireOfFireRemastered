@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour {
     GameObject player;
     NavMeshAgent nav;
     float health = 100;
+    [SerializeField] int expToGive;
 
 	// Use this for initialization
 	void Start () {
@@ -17,14 +18,21 @@ public class EnemyAI : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         nav.destination = player.transform.position;
-        if(health <= 0)
+        HandleDying();
+    }
+
+    private void HandleDying()
+    {
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
-	}
-    
+        player.GetComponent<PlayerController>().GainExp(expToGive);
+    }
+
     public void TakeDamage(int damage)
     {
         health -= damage;
