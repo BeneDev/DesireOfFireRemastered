@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 136370712225598666}
   - component: {fileID: 114768371637781596}
   - component: {fileID: 114663205027106518}
+  - component: {fileID: 114308587827322494}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -203,7 +204,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -214,6 +215,19 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114308587827322494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1231210538551174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 356dd844f94f76b429a34459a9b06f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1089941709551418, guid: 3534959421d0c52439872ba42f5f36bd,
+    type: 2}
 --- !u!114 &114663205027106518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MovingTurnSpeed: 360
-  m_StationaryTurnSpeed: 180
+  m_StationaryTurnSpeed: 90
   m_JumpPower: 6
   m_GravityMultiplier: 2
   m_RunCycleLegOffset: 0.2

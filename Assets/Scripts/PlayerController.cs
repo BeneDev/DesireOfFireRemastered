@@ -18,7 +18,8 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.E))
         {
-            GameObject projectile = Instantiate(projectilePrefab, player.transform.position, Quaternion.identity);
+            GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, player.transform.rotation);
+            projectile.GetComponent<ProjectileController>().SetDirection(fwd);
         }
 	}
 
