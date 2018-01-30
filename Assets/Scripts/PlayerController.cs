@@ -6,17 +6,18 @@ public class PlayerController : MonoBehaviour {
 
     Vector3 fwd;
 
-    public GameObject projectilePrefab;
-    public GameObject player;
+    [SerializeField] GameObject projectilePrefab;
+    private GameObject player;
 
 	// Use this for initialization
 	void Start () {
-	    
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.E){
+		if (Input.GetKeyDown(KeyCode.E))
+        {
             GameObject projectile = Instantiate(projectilePrefab, player.transform.position, Quaternion.identity);
         }
 	}
