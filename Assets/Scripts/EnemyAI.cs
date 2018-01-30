@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour {
 
     GameObject player;
     NavMeshAgent nav;
+    float health = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -18,5 +19,23 @@ public class EnemyAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         nav.destination = player.transform.position;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
 	}
+    
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 8)
+        {
+            TakeDamage(player.GetComponent<PlayerController>().damage);
+            Destroy(other.transform.parent.gameObject);
+        }
+    }
 }

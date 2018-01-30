@@ -7,10 +7,12 @@ public class ProjectileController : MonoBehaviour {
     Vector3 direction;
     Rigidbody rb;
     [SerializeField] float speed;
+    GameObject player;
     
     public void SetDirection(Vector3 p_direction)
     {
         direction = p_direction;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
 	// Use this for initialization
@@ -21,5 +23,12 @@ public class ProjectileController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         rb.velocity = direction.normalized * speed;
+        StartCoroutine(DeleteAfterTime());
 	}
+
+    IEnumerator DeleteAfterTime()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+    }
 }
