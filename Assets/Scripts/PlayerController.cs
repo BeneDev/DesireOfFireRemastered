@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] GameObject projectilePrefab;
     private GameObject player;
     private int healthRegen = 10;
+    float attackCounter = 1;
     
     [SerializeField] float speed = 1f;
     
@@ -55,44 +56,23 @@ public class PlayerController : MonoBehaviour {
         {
             LevelUp();
         }
-        fwd = transform.forward;
-
-        // read inputs
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-
-        Shooting();
-
-        if (h == 0 && v == 0)
-        {
-            playerState = State.idling;
-        }
-
-        if(playerState == State.walking)
-        {
-            TurnDirection(h, v);
-        }
-
-        moveDirection = new Vector3(-v, 0, h);
-        // pass all parameters to the character control script
-        Move(moveDirection);
     }
 
     void TurnDirection(float p_h, float p_v)
     {
-        if(rb.velocity.x > 0)
+        if(Input.GetKey(KeyCode.D) && transform.rotation != Quaternion.Euler(0, 360f, 0))
         {
             transform.rotation = Quaternion.Euler(0, 360f, 0);
         }
-        else
+        else if(Input.GetKey(KeyCode.A) && transform.rotation != Quaternion.Euler(0, -180f, 0))
         {
             transform.rotation = Quaternion.Euler(0, -180f, 0);
         }
-        if(rb.velocity.z > 0)
+        if(Input.GetKey(KeyCode.W) && transform.rotation != Quaternion.Euler(0, -90f, 0))
         {
             transform.rotation = Quaternion.Euler(0, -90f, 0);
         }
-        else
+        else if(Input.GetKey(KeyCode.S) && transform.rotation != Quaternion.Euler(0, 90f, 0))
         {
             transform.rotation = Quaternion.Euler(0, 90f, 0);
         }
@@ -124,6 +104,12 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    IEnumerator CountDownAttackCounter()
+    {
+        yield return new WaitForSeconds(attackCounter);
+        playerState = State.idling;
+    }
+
     private void Shooting()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -132,6 +118,7 @@ public class PlayerController : MonoBehaviour {
             GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, player.transform.rotation);
             projectile.GetComponent<ProjectileController>().SetDirection(fwd);
             playerState = State.attacking;
+            StartCoroutine(CountDownAttackCounter());
         }
         else if(Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -139,6 +126,7 @@ public class PlayerController : MonoBehaviour {
             GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, player.transform.rotation);
             projectile.GetComponent<ProjectileController>().SetDirection(fwd);
             playerState = State.attacking;
+            StartCoroutine(CountDownAttackCounter());
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -146,6 +134,7 @@ public class PlayerController : MonoBehaviour {
             GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, player.transform.rotation);
             projectile.GetComponent<ProjectileController>().SetDirection(fwd);
             playerState = State.attacking;
+            StartCoroutine(CountDownAttackCounter());
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -153,16 +142,39 @@ public class PlayerController : MonoBehaviour {
             GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, player.transform.rotation);
             projectile.GetComponent<ProjectileController>().SetDirection(fwd);
             playerState = State.attacking;
-        }
-        else
-        {
-            playerState = State.walking;
+            StartCoroutine(CountDownAttackCounter());
         }
     }
 
     private void FixedUpdate()
     {
-        
+        fwd = transform.forward;
+        // read inputs
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        if (h == 0 && v == 0)
+        {
+            playerState = State.idling;
+        }
+        if(playerState == State.idling)
+        {
+            if(h != 0 || v != 0)
+            {
+                playerState = State.walking;
+            }
+        }
+
+        if (playerState == State.walking)
+        {
+            TurnDirection(h, v);
+        }
+
+        Shooting();
+
+        moveDirection = new Vector3(-v, 0, h);
+        // pass all parameters to the character control script
+        Move(moveDirection);
     }
 
     public void GainExp(int p_exp)
