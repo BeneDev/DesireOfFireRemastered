@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     Vector3 fwd;
-    private int baseDamage = 10;
+    [SerializeField] int baseDamage = 10;
     public int damage;
-    public int baseDefense = 5;
-    public int defense;
+    [SerializeField] int baseDefense = 5;
+    private int defense;
     private int health;
-    private int maxHealth = 100;
+    [SerializeField] int maxHealth = 100;
     private int level = 1;
     private int exp = 0;
     private int expToNextLevel = 10;
