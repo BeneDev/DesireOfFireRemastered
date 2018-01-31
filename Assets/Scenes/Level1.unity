@@ -245,7 +245,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &635841811
 Prefab:
@@ -357,7 +357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &850540866
 Prefab:
@@ -396,7 +396,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4724067845795742, guid: 7aa3277e81b14f74eb993c1013a5eee1, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4365609170313486, guid: 7aa3277e81b14f74eb993c1013a5eee1, type: 2}
       propertyPath: m_LocalRotation.x
@@ -458,7 +458,7 @@ Transform:
   - {fileID: 1875047009}
   - {fileID: 598359512}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &959151838
 GameObject:
@@ -826,7 +826,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1393426913}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1798577850}
+        m_MethodName: Defense
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1393426913
@@ -937,7 +948,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1499732830}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1798577850}
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1499732830
@@ -973,6 +995,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1499732827}
+--- !u!1001 &1592777633
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.5177765
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 11.257477
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832209652497254, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_Name
+      value: WalkerEnemy (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1629443661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,7 +1135,7 @@ Transform:
   - {fileID: 788156049}
   - {fileID: 2105232353}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1798577845
 GameObject:
@@ -1157,7 +1225,7 @@ RectTransform:
   m_Children:
   - {fileID: 2059923801}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1175,6 +1243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821c4c80b3afae84981aca961dca1238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chooseAttack: 0
+  panel: {fileID: 2059923800}
 --- !u!4 &1869136140 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4797162210789588, guid: b4261e7aa07bdf9489ba945bba3ebaca,
@@ -1217,7 +1287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 134}
+  m_AnchoredPosition: {x: 0, y: 65}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1884370555
@@ -1259,6 +1329,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1884370553}
+--- !u!1001 &1946645473
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6.3216248
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -3.674942
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220764983684360, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0b756e6c6fe796142b41b66567cbc5f2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1964257164
 Prefab:
   m_ObjectHideFlags: 0
@@ -1337,7 +1449,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -758.7, y: -314.3}
+  m_SizeDelta: {x: -506.3, y: -261.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2059923802
 MonoBehaviour:
@@ -1414,8 +1526,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4492232920699420, guid: b1b8f3fefdb230b4a8b97c4b52de010e, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114744008789270346, guid: b1b8f3fefdb230b4a8b97c4b52de010e,
+        type: 2}
+      propertyPath: levelupPanel
+      value: 
+      objectReference: {fileID: 2059923800}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1b8f3fefdb230b4a8b97c4b52de010e, type: 2}
   m_IsPrefabParent: 0

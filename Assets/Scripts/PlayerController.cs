@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     Vector3 fwd;
-    [SerializeField] int baseDamage = 10;
-    public int damage;
-    [SerializeField] int baseDefense = 5;
-    private int defense;
+    public int baseDamage = 10;
+    [HideInInspector] public int damage;
+    public int baseDefense = 5;
+    [HideInInspector] public int defense;
     private int health;
     [SerializeField] int maxHealth = 100;
-    private int level = 1;
+    [HideInInspector] public int level = 1;
     private int exp = 0;
     private int expToNextLevel = 10;
     [SerializeField] GameObject projectilePrefab;
@@ -20,7 +20,10 @@ public class PlayerController : MonoBehaviour {
     float attackCounter = 1;
     
     [SerializeField] float speed = 1f;
-    
+
+    [SerializeField] GameObject levelupPanel;
+    LevelUpController lvlup;
+
     private Vector3 moveDirection;
 
     Rigidbody rb;
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
+        lvlup = levelupPanel.transform.parent.gameObject.GetComponent<LevelUpController>();
     }
 	
 	// Update is called once per frame
@@ -79,12 +83,11 @@ public class PlayerController : MonoBehaviour {
 
     private void LevelUp()
     {
+        Time.timeScale = 0f;
         int overExp = exp - expToNextLevel;
         level++;
         exp = overExp;
-        // TODO make ui for choosing which one you want to upgrade
-        damage = baseDamage + level*3;
-        defense = baseDefense + level*3;
+        levelupPanel.SetActive(true);
         expToNextLevel = expToNextLevel ^ 2;
         if (health + healthRegen < maxHealth)
         {
