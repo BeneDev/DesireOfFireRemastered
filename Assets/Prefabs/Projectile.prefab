@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4980724590623044}
   - component: {fileID: 114167453187998950}
-  - component: {fileID: 54996636202083376}
+  - component: {fileID: 54181613720471842}
   m_Layer: 8
   m_Name: Projectile
   m_TagString: Untagged
@@ -144,7 +144,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1774976276053874}
   m_Mesh: {fileID: 4300000, guid: f7776fecc66c4aa4892ec2948ef11616, type: 3}
---- !u!54 &54996636202083376
+--- !u!54 &54181613720471842
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
