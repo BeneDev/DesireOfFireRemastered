@@ -30,4 +30,12 @@ public class ProjectileController : MonoBehaviour {
         yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<Rigidbody>() != null)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
