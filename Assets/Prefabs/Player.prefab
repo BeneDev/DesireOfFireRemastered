@@ -208,8 +208,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 10
   damage: 10
-  baseDefense: 5
+  baseDefense: 0
+  defense: 0
   maxHealth: 100
+  level: 1
   projectilePrefab: {fileID: 1089941709551418, guid: 3534959421d0c52439872ba42f5f36bd,
     type: 2}
   speed: 10

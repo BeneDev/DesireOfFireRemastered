@@ -15,7 +15,6 @@ public class CrawlerEnemy : EnemyAI {
         health = desHealth;
         expToGive = desExpToGive;
         attack = desAttack;
-        defense = desDefense;
         lookDistance = desLookDistance;
 	}
 	

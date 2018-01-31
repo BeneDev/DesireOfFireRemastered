@@ -11,7 +11,6 @@ public class EnemyAI : MonoBehaviour {
     protected int health = 100;
     protected int expToGive = 3;
     protected int attack = 5;
-    protected int defense = 0;
     protected float lookDistance = 15;
     protected Vector3 distance;
 

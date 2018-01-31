@@ -17,7 +17,6 @@ public class WalkerEnemy : EnemyAI {
         health = desHealth;
         expToGive = desExpToGive;
         attack = desAttack;
-        defense = desDefense;
         lookDistance = desLookDistance;
     }
 

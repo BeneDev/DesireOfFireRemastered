@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour {
     Vector3 fwd;
     public int baseDamage = 10;
     [HideInInspector] public int damage;
-    public int baseDefense = 5;
-    [HideInInspector] public int defense;
+    public int baseDefense = 0;
+    [Range(0, 75)][HideInInspector] public int defense;
     private int health;
     [SerializeField] int maxHealth = 100;
     [HideInInspector] public int level = 1;
@@ -27,8 +27,6 @@ public class PlayerController : MonoBehaviour {
     private Vector3 moveDirection;
 
     Rigidbody rb;
-    float turnAmount;
-    float forwardAmount;
 
     enum State
     {
@@ -98,7 +96,16 @@ public class PlayerController : MonoBehaviour {
 
     public void TakeDamage(int p_damage)
     {
-        health -= p_damage;
+        int substract = p_damage;
+        if(defense <= p_damage)
+        {
+            substract = p_damage - defense;
+        }
+        else
+        {
+            substract = 0;
+        }
+        health -= substract;
     }
 
     private void Shooting()
