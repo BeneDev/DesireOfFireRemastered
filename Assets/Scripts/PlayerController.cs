@@ -43,12 +43,28 @@ public class PlayerController : MonoBehaviour {
     {
         if(exp >= expToNextLevel)
         {
-            int overExp = exp - expToNextLevel;
-            level++;
-            exp = overExp;
+            LevelUp();
         }
-        //damage = baseDamage * level;
-        //defense = baseDefense * level;
+        fwd = transform.forward;
+
+        // read inputs
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        moveDirection = new Vector3(-v, 0, h);
+        // pass all parameters to the character control script
+        Move(moveDirection);
+    }
+
+    private void LevelUp()
+    {
+        int overExp = exp - expToNextLevel;
+        level++;
+        exp = overExp;
+        // TODO make ui for choosing which one you want to upgrade
+        damage = baseDamage + level*3;
+        defense = baseDefense + level*3;
+        expToNextLevel = expToNextLevel ^ 2;
     }
 
     private void LateUpdate()
@@ -86,15 +102,7 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        fwd = transform.forward;
-
-        // read inputs
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-
-        moveDirection = new Vector3(-v, 0, h);
-        // pass all parameters to the character control script
-        Move(moveDirection);
+        
     }
 
     public void GainExp(int p_exp)

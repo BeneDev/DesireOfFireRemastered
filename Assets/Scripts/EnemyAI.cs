@@ -8,8 +8,11 @@ public class EnemyAI : MonoBehaviour {
 
     GameObject player;
     NavMeshAgent nav;
-    float health = 100;
-    [SerializeField] int expToGive;
+    [SerializeField] float health = 100;
+    [SerializeField] int expToGive = 3;
+    [SerializeField] int attack = 2;
+    [SerializeField] int defense = 0;
+    [SerializeField] float lookDistance = 5;
 
 	// Use this for initialization
 	void Start () {
@@ -20,16 +23,20 @@ public class EnemyAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        nav.destination = player.transform.position;
-        HandleDying();
+        Vector3 distance = player.transform.position - transform.position;
+        if (distance.magnitude <= lookDistance)
+        {
+            nav.destination = player.transform.position;
+        }
+        if (health <= 0)
+        {
+            HandleDying();
+        }
     }
 
     private void HandleDying()
     {
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
         player.GetComponent<PlayerController>().GainExp(expToGive);
     }
 
@@ -45,5 +52,10 @@ public class EnemyAI : MonoBehaviour {
             TakeDamage(player.GetComponent<PlayerController>().damage);
             Destroy(other.transform.parent.gameObject);
         }
+    }
+
+    public virtual void Attack()
+    {
+
     }
 }

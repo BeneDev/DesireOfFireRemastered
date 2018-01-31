@@ -14,11 +14,13 @@ public class ProjectileController : MonoBehaviour {
         direction = p_direction;
         player = GameObject.FindGameObjectWithTag("Player");
     }
+    
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
-	}
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 	
 	// Update is called once per frame
 	void Update () {
