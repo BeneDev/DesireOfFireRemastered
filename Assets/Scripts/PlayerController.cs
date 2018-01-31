@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour {
         health = maxHealth;
         damage = baseDamage;
         defense = baseDefense;
-        playerState = State.idling;
     }
 
     // Use this for initialization
@@ -99,50 +98,35 @@ public class PlayerController : MonoBehaviour {
         health -= p_damage;
     }
 
-    private void LateUpdate()
-    {
-
-    }
-
-    IEnumerator CountDownAttackCounter()
-    {
-        yield return new WaitForSeconds(attackCounter);
-        playerState = State.idling;
-    }
-
     private void Shooting()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             transform.rotation = Quaternion.Euler(0, -90f, 0);
-            GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, player.transform.rotation);
+            Quaternion proRot = Quaternion.Euler(0, -90f, 0);
+            GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, proRot);
             projectile.GetComponent<ProjectileController>().SetDirection(fwd);
-            playerState = State.attacking;
-            StartCoroutine(CountDownAttackCounter());
         }
         else if(Input.GetKeyDown(KeyCode.DownArrow))
         {
             transform.rotation = Quaternion.Euler(0, 90f, 0);
-            GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, player.transform.rotation);
+            Quaternion proRot = Quaternion.Euler(0, 90f, 0);
+            GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, proRot);
             projectile.GetComponent<ProjectileController>().SetDirection(fwd);
-            playerState = State.attacking;
-            StartCoroutine(CountDownAttackCounter());
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             transform.rotation = Quaternion.Euler(0, -180f, 0);
-            GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, player.transform.rotation);
+            Quaternion proRot = Quaternion.Euler(0, -180f, 0);
+            GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, proRot);
             projectile.GetComponent<ProjectileController>().SetDirection(fwd);
-            playerState = State.attacking;
-            StartCoroutine(CountDownAttackCounter());
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             transform.rotation = Quaternion.Euler(0, 360f, 0);
-            GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, player.transform.rotation);
+            Quaternion proRot = Quaternion.Euler(0, 360f, 0);
+            GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, proRot);
             projectile.GetComponent<ProjectileController>().SetDirection(fwd);
-            playerState = State.attacking;
-            StartCoroutine(CountDownAttackCounter());
         }
     }
 
@@ -152,23 +136,6 @@ public class PlayerController : MonoBehaviour {
         // read inputs
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-
-        if (h == 0 && v == 0)
-        {
-            playerState = State.idling;
-        }
-        if(playerState == State.idling)
-        {
-            if(h != 0 || v != 0)
-            {
-                playerState = State.walking;
-            }
-        }
-
-        if (playerState == State.walking)
-        {
-            TurnDirection(h, v);
-        }
 
         Shooting();
 

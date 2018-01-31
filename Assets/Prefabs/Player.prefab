@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23597594422803396}
   m_Layer: 0
   m_Name: Flame
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  baseDefense: 5
   defense: 5
   projectilePrefab: {fileID: 1089941709551418, guid: 3534959421d0c52439872ba42f5f36bd,
     type: 2}

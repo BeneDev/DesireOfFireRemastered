@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 23742477210827268}
   m_Layer: 0
   m_Name: Mesh
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1402c77e85b5744bfbe72de5eaf2ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  desHealth: 1
+  desExpToGive: 3
+  desAttack: 5
+  desDefense: 0
+  desLookDistance: 15
 --- !u!195 &195294292360024052
 NavMeshAgent:
   m_ObjectHideFlags: 1
