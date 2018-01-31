@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
     private int expToNextLevel = 10;
     [SerializeField] GameObject projectilePrefab;
     private GameObject player;
+    private int healthRegen = 10;
     
     [SerializeField] float speed = 1f;
     
@@ -65,6 +66,16 @@ public class PlayerController : MonoBehaviour {
         damage = baseDamage + level*3;
         defense = baseDefense + level*3;
         expToNextLevel = expToNextLevel ^ 2;
+        if (health + healthRegen < maxHealth)
+        {
+            health += healthRegen;
+        }
+
+    }
+
+    public void TakeDamage(int p_damage)
+    {
+        health -= p_damage;
     }
 
     private void LateUpdate()

@@ -13,9 +13,10 @@ public class EnemyAI : MonoBehaviour {
     [SerializeField] int attack = 2;
     [SerializeField] int defense = 0;
     [SerializeField] float lookDistance = 5;
+    Vector3 distance;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         nav = GetComponent<NavMeshAgent>();
 	}
@@ -23,7 +24,7 @@ public class EnemyAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Vector3 distance = player.transform.position - transform.position;
+        distance = player.transform.position - transform.position;
         if (distance.magnitude <= lookDistance)
         {
             nav.destination = player.transform.position;
@@ -31,6 +32,10 @@ public class EnemyAI : MonoBehaviour {
         if (health <= 0)
         {
             HandleDying();
+        }
+        if (distance.magnitude <= 5)
+        {
+            Attack();
         }
     }
 
@@ -55,7 +60,7 @@ public class EnemyAI : MonoBehaviour {
     }
 
     public virtual void Attack()
-    {
-
+    {   
+        player.GetComponent<PlayerController>().TakeDamage(attack);
     }
 }
