@@ -42,6 +42,7 @@ public class EnemyAI : MonoBehaviour {
     {
         if(other.gameObject.layer == 8)
         {
+            print("destroy");
             TakeDamage(player.GetComponent<PlayerController>().damage);
             Destroy(other.transform.parent.gameObject);
         }

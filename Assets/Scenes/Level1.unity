@@ -113,22 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 03a56061e6f264e48aa1300f7f5a0e1b, type: 2}
---- !u!1 &582622569 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1228107777842878, guid: b4261e7aa07bdf9489ba945bba3ebaca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1372749098}
---- !u!114 &582622570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 582622569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c1402c77e85b5744bfbe72de5eaf2ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &598359509
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +125,7 @@ GameObject:
   - component: {fileID: 598359510}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -391,14 +375,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4727843775591014, guid: fbe7ca08d0fe6434fa40e6a3f285687b, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 159.13246
-      objectReference: {fileID: 0}
-    - target: {fileID: 4727843775591014, guid: fbe7ca08d0fe6434fa40e6a3f285687b, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 52.585842
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbe7ca08d0fe6434fa40e6a3f285687b, type: 2}
   m_IsPrefabParent: 0
@@ -500,8 +476,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114562017596003052, guid: b4261e7aa07bdf9489ba945bba3ebaca, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4261e7aa07bdf9489ba945bba3ebaca, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1629443661
