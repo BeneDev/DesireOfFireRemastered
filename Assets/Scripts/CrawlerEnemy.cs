@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class CrawlerEnemy : EnemyAI {
 
-	// Use this for initialization
-	void Start () {
-		
+    [SerializeField] int desHealth = 100;
+    [SerializeField] int desExpToGive = 3;
+    [SerializeField] int desAttack = 5;
+    [SerializeField] int desDefense = 0;
+    [SerializeField] float desLookDistance = 15;
+
+    // Use this for initialization
+    public void Reset() {
+        health = desHealth;
+        expToGive = desExpToGive;
+        attack = desAttack;
+        defense = desDefense;
+        lookDistance = desLookDistance;
 	}
 	
 	// Update is called once per frame
@@ -20,9 +30,15 @@ public class CrawlerEnemy : EnemyAI {
         {
             HandleDying();
         }
-        if (distance.magnitude <= 5)
+        if (distance.magnitude <= 1)
         {
             Attack();
         }
+    }
+
+    public override void Attack()
+    {
+        base.Attack();
+        HandleDying();
     }
 }

@@ -8,11 +8,11 @@ public class EnemyAI : MonoBehaviour {
 
     protected GameObject player;
     protected NavMeshAgent nav;
-    protected float health = 100;
+    protected int health = 100;
     protected int expToGive = 3;
-    protected int attack = 2;
+    protected int attack = 5;
     protected int defense = 0;
-    protected float lookDistance = 5;
+    protected float lookDistance = 15;
     protected Vector3 distance;
 
     // Use this for initialization
