@@ -51,5 +51,9 @@ public class ProjectileController : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        if (other.gameObject.tag == "Environment")
+        {
+            Destroy(gameObject);
+        }
     }
 }
