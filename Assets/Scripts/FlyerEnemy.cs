@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkerEnemy : EnemyAI {
+public class FlyerEnemy : EnemyAI
+{
 
     [SerializeField] int desHealth = 100;
     [SerializeField] int desExpToGive = 3;
@@ -20,24 +21,36 @@ public class WalkerEnemy : EnemyAI {
     }
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         distance = player.transform.position - transform.position;
         if (distance.magnitude <= lookDistance)
         {
             nav.destination = player.transform.position;
         }
+        if(distance.magnitude <= lookDistance/2)
+        {
+            //Attack();
+            nav.destination = transform.position;
+        }
+        if(distance.magnitude <= lookDistance/4)
+        {
+            nav.destination = transform.position + (-distance.normalized) * 4;
+        }
         if (health <= 0)
         {
             HandleDying();
         }
-        if (distance.magnitude <= 1.5)
-        {
-            Attack();
-        }
+    }
+
+    public override void Attack()
+    {
+        // TODO make projectiles fly towards the player in an angle
     }
 }

@@ -13,11 +13,13 @@ public class EnemyAI : MonoBehaviour {
     protected int attack = 5;
     protected float lookDistance = 15;
     protected Vector3 distance;
+    Camera cam;
 
     // Use this for initialization
     protected void Awake () {
         player = GameObject.FindGameObjectWithTag("Player");
         nav = GetComponent<NavMeshAgent>();
+        cam = Camera.main;
 	}
 	
 	// Update is called once per frame
@@ -35,6 +37,7 @@ public class EnemyAI : MonoBehaviour {
     protected void TakeDamage(int damage)
     {
         health -= damage;
+        cam.GetComponent<CameraShake>().shakeDuration = 0.2f;
     }
 
     protected void OnTriggerEnter(Collider other)
