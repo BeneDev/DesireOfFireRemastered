@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    Camera cam;
+
     Vector3 fwd;
     public int baseDamage = 10;
     [HideInInspector] public int damage;
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
         lvlup = levelupPanel.transform.parent.gameObject.GetComponent<LevelUpController>();
+        cam = Camera.main;
     }
 	
 	// Update is called once per frame
@@ -81,6 +84,7 @@ public class PlayerController : MonoBehaviour {
 
     private void LevelUp()
     {
+        cam.GetComponent<CameraShake>().shakeDuration = 0;
         Time.timeScale = 0f;
         int overExp = exp - expToNextLevel;
         level++;
