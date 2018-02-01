@@ -14,6 +14,17 @@ public class LevelUpController : MonoBehaviour {
         player = FindObjectOfType<PlayerController>();
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            Attack();
+        }
+        else if(Input.GetKeyDown(KeyCode.E))
+        {
+            Defense();
+        }
+    }
 
     public void Attack()
     {
