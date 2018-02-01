@@ -7,15 +7,29 @@ public class ProjectileController : MonoBehaviour {
     Vector3 direction;
     Rigidbody rb;
     [SerializeField] float speed;
-    
-    public void SetDirection(Vector3 p_direction)
-    {
-        direction = p_direction;
-    }
-    
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        if(transform.rotation == Quaternion.Euler(0, -90f, 0))
+        {
+            direction = new Vector3(-1f, 0, 0);
+        }
+        else if (transform.rotation == Quaternion.Euler(0, 90f, 0))
+        {
+            direction = new Vector3(1f, 0, 0);
+        }
+        else if (transform.rotation == Quaternion.Euler(0, -180f, 0))
+        {
+            direction = new Vector3(0, 0, -1f);
+        }
+        else if (transform.rotation == Quaternion.Euler(0, 360f, 0))
+        {
+            direction = new Vector3(0, 0, 1f);
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
         rb = GetComponent<Rigidbody>();
     }
 	

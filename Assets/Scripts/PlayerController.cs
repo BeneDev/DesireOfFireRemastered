@@ -113,30 +113,30 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             transform.rotation = Quaternion.Euler(0, -90f, 0);
+            fwd = transform.forward;
             Quaternion proRot = Quaternion.Euler(0, -90f, 0);
             GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, proRot);
-            projectile.GetComponent<ProjectileController>().SetDirection(fwd);
         }
         else if(Input.GetKeyDown(KeyCode.DownArrow))
         {
             transform.rotation = Quaternion.Euler(0, 90f, 0);
+            fwd = transform.forward;
             Quaternion proRot = Quaternion.Euler(0, 90f, 0);
             GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, proRot);
-            projectile.GetComponent<ProjectileController>().SetDirection(fwd);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             transform.rotation = Quaternion.Euler(0, -180f, 0);
+            fwd = transform.forward;
             Quaternion proRot = Quaternion.Euler(0, -180f, 0);
             GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, proRot);
-            projectile.GetComponent<ProjectileController>().SetDirection(fwd);
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             transform.rotation = Quaternion.Euler(0, 360f, 0);
+            fwd = transform.forward;
             Quaternion proRot = Quaternion.Euler(0, 360f, 0);
             GameObject projectile = Instantiate(projectilePrefab, player.transform.position + fwd.normalized, proRot);
-            projectile.GetComponent<ProjectileController>().SetDirection(fwd);
         }
     }
 
