@@ -11,17 +11,18 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector] public int damage;
     public int baseDefense = 0;
     [Range(0, 75)][HideInInspector] public int defense;
-    private int health;
+    [HideInInspector] public int health;
     [SerializeField] int maxHealth = 100;
     [HideInInspector] public int level = 1;
-    private int exp = 0;
-    private int expToNextLevel = 10;
+    [HideInInspector] public int exp = 0;
+    [HideInInspector] public int expToNextLevel = 10;
     [SerializeField] GameObject projectilePrefab;
     private GameObject player;
     private int healthRegen = 10;
     float attackCounter = 1;
     
     [SerializeField] float speed = 1f;
+    [Range(100, 1000)] [SerializeField] float knockbackMultiplier = 300f;
 
     [SerializeField] GameObject levelupPanel;
     LevelUpController lvlup;
@@ -98,17 +99,18 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    public void TakeDamage(int p_damage)
+    public void TakeDamage(int p_damage, Vector3 knockDir)
     {
         int substract = p_damage;
-        if(defense <= p_damage)
+        if(defense < substract)
         {
             substract = p_damage - defense;
         }
         else
         {
-            substract = 0;
+            substract = 1;
         }
+        rb.AddForce(knockDir.normalized*(substract*knockbackMultiplier));
         health -= substract;
     }
 

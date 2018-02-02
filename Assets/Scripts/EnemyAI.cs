@@ -51,8 +51,9 @@ public class EnemyAI : MonoBehaviour {
     }
 
     public virtual void Attack()
-    {   
-        player.GetComponent<PlayerController>().TakeDamage(attack);
+    {
+        Vector3 knockDir = player.transform.position - transform.position;
+        player.GetComponent<PlayerController>().TakeDamage(attack, knockDir);
     }
 
     public virtual void Behavior()
