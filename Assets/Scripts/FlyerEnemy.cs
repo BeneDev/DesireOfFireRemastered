@@ -29,17 +29,27 @@ public class FlyerEnemy : EnemyAI
     // Update is called once per frame
     void Update()
     {
+        Behavior();
+    }
+
+    public override void Attack()
+    {
+        // TODO make projectiles fly towards the player in an angle
+    }
+
+    public override void Behavior()
+    {
         distance = player.transform.position - transform.position;
         if (distance.magnitude <= lookDistance)
         {
             nav.destination = player.transform.position;
         }
-        if(distance.magnitude <= lookDistance/2)
+        if (distance.magnitude <= lookDistance / 2)
         {
             //Attack();
             nav.destination = transform.position;
         }
-        if(distance.magnitude <= lookDistance/4)
+        if (distance.magnitude <= lookDistance / 4)
         {
             nav.destination = transform.position + (-distance.normalized) * 4;
         }
@@ -47,10 +57,5 @@ public class FlyerEnemy : EnemyAI
         {
             HandleDying();
         }
-    }
-
-    public override void Attack()
-    {
-        // TODO make projectiles fly towards the player in an angle
     }
 }

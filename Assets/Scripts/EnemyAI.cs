@@ -54,4 +54,21 @@ public class EnemyAI : MonoBehaviour {
     {   
         player.GetComponent<PlayerController>().TakeDamage(attack);
     }
+
+    public virtual void Behavior()
+    {
+        distance = player.transform.position - transform.position;
+        if (distance.magnitude <= lookDistance)
+        {
+            nav.destination = player.transform.position;
+        }
+        if (health <= 0)
+        {
+            HandleDying();
+        }
+        if (distance.magnitude <= 1.5)
+        {
+            Attack();
+        }
+    }
 }
