@@ -11,15 +11,19 @@ public class EnemyAI : MonoBehaviour {
     protected int health = 100;
     protected int expToGive = 3;
     protected int attack = 5;
+    protected int level = 1;
     protected float lookDistance = 15;
     protected Vector3 distance;
     Camera cam;
 
     // Use this for initialization
-    protected void Awake () {
+    void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         nav = GetComponent<NavMeshAgent>();
         cam = Camera.main;
+        health *= level;
+        expToGive *= level;
+        attack *= level;
 	}
 	
 	// Update is called once per frame

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlyerEnemy : EnemyAI
 {
-
+    [SerializeField] int desLevel = 1;
     [SerializeField] int desHealth = 100;
     [SerializeField] int desExpToGive = 3;
     [SerializeField] int desAttack = 5;
@@ -14,6 +14,7 @@ public class FlyerEnemy : EnemyAI
     // Use this for initialization
     public void Reset()
     {
+        level = desLevel;
         health = desHealth;
         expToGive = desExpToGive;
         attack = desAttack;
@@ -21,9 +22,9 @@ public class FlyerEnemy : EnemyAI
     }
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-
+        Reset();
     }
 
     // Update is called once per frame

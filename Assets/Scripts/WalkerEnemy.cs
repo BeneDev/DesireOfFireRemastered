@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkerEnemy : EnemyAI {
-
+public class WalkerEnemy : EnemyAI
+{
+    [SerializeField] int desLevel = 1;
     [SerializeField] int desHealth = 100;
     [SerializeField] int desExpToGive = 3;
     [SerializeField] int desAttack = 5;
@@ -13,6 +14,7 @@ public class WalkerEnemy : EnemyAI {
     // Use this for initialization
     public void Reset()
     {
+        level = desLevel;
         health = desHealth;
         expToGive = desExpToGive;
         attack = desAttack;
@@ -20,12 +22,14 @@ public class WalkerEnemy : EnemyAI {
     }
 
     // Use this for initialization
-    void Start () {
-		
+    void Awake ()
+    {
+        Reset();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         Behavior();
     }
 }
