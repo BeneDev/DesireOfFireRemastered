@@ -42,7 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 9
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 8
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -77,21 +77,18 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFilterTypeDirect: 0
-    m_PVRFilterTypeIndirect: 0
-    m_PVRFilterTypeAO: 0
+    m_PVRFiltering: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-    m_PVRFilteringAtrousPositionSigmaIndirect: 2
-    m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 112000002, guid: c4d4fce992910764d817f24af6107079,
     type: 2}
-  m_UseShadowmask: 1
+  m_ShadowMaskMode: 2
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -111,8 +108,6 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-    debug:
-      m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 03a56061e6f264e48aa1300f7f5a0e1b, type: 2}
 --- !u!1001 &502596359
 Prefab:
@@ -156,6 +151,80 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 876ea442228bbd54ab57a58d92189a8e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &541423821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 541423822}
+  - component: {fileID: 541423824}
+  - component: {fileID: 541423823}
+  m_Layer: 5
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &541423822
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 541423821}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1439071280}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 179}
+  m_SizeDelta: {x: 370, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &541423823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 541423821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.6544118, g: 0.2704592, b: 0.226157, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 48cd93939aa8c534ca1e92e6e6954480, type: 3}
+    m_FontSize: 300
+    m_FontStyle: 1
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Desire of Fire
+--- !u!222 &541423824
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 541423821}
 --- !u!1 &598359509
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +599,96 @@ Prefab:
       propertyPath: m_FontData.m_MaxSize
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 114140691582235798, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.36397058
+      objectReference: {fileID: 0}
+    - target: {fileID: 114140691582235798, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.36397058
+      objectReference: {fileID: 0}
+    - target: {fileID: 114140691582235798, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.72794116
+      objectReference: {fileID: 0}
+    - target: {fileID: 114140691582235798, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.89705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 114140691582235798, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.45512545
+      objectReference: {fileID: 0}
+    - target: {fileID: 114140691582235798, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.45512545
+      objectReference: {fileID: 0}
+    - target: {fileID: 114140691582235798, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114140691582235798, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.5676903
+      objectReference: {fileID: 0}
+    - target: {fileID: 114140691582235798, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.5676903
+      objectReference: {fileID: 0}
+    - target: {fileID: 114863803474065048, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.7019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 114863803474065048, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.34901962
+      objectReference: {fileID: 0}
+    - target: {fileID: 114863803474065048, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.34901962
+      objectReference: {fileID: 0}
+    - target: {fileID: 114863803474065048, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.85294116
+      objectReference: {fileID: 0}
+    - target: {fileID: 114863803474065048, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.43901384
+      objectReference: {fileID: 0}
+    - target: {fileID: 114863803474065048, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.43901384
+      objectReference: {fileID: 0}
+    - target: {fileID: 114863803474065048, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114863803474065048, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.5260597
+      objectReference: {fileID: 0}
+    - target: {fileID: 114863803474065048, guid: 8d04204380de24d479826cb69da73ce5,
+        type: 2}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.5260597
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d04204380de24d479826cb69da73ce5, type: 2}
   m_IsPrefabParent: 0
@@ -810,6 +969,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4261e7aa07bdf9489ba945bba3ebaca, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &1439071280 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224503183179555084, guid: 8d04204380de24d479826cb69da73ce5,
+    type: 2}
+  m_PrefabInternal: {fileID: 827447118}
 --- !u!1 &1633130963
 GameObject:
   m_ObjectHideFlags: 0

@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour {
         level++;
         exp = overExp;
         levelupPanel.SetActive(true);
-        expToNextLevel = expToNextLevel ^ 2;
+        expToNextLevel = (int)Mathf.Pow((float)expToNextLevel, 1.3f);
         if (health + healthRegen < maxHealth)
         {
             health += healthRegen;
