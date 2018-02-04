@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour {
     protected NavMeshAgent nav;
     protected int health = 100;
     protected int expToGive = 3;
-    protected int attack = 5;
+    public int attack = 5;
     protected int level = 1;
     protected float lookDistance = 15;
     protected Vector3 distance;

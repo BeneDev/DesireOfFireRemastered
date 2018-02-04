@@ -83,7 +83,6 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -99,7 +98,6 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -141,11 +139,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d067974ed8a43d4ba88de8ef69ce1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: 5
+  desLevel: 1
   desHealth: 100
   desExpToGive: 10
   desAttack: 5
   desDefense: 0
   desLookDistance: 15
+  cooldownTime: 1
+  eProjectile: {fileID: 1089941709551418, guid: 241e7b38534032e46a9a890790ca0529,
+    type: 2}
 --- !u!136 &136791439934154416
 CapsuleCollider:
   m_ObjectHideFlags: 1

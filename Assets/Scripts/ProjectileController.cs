@@ -7,25 +7,11 @@ public class ProjectileController : MonoBehaviour {
     Vector3 direction;
     Rigidbody rb;
     [SerializeField] float speed;
+    public GameObject ofEnemy;
 
     private void Awake()
     {
-        if(transform.rotation == Quaternion.Euler(0, -90f, 0))
-        {
-            direction = new Vector3(-1f, 0, 0);
-        }
-        else if (transform.rotation == Quaternion.Euler(0, 90f, 0))
-        {
-            direction = new Vector3(1f, 0, 0);
-        }
-        else if (transform.rotation == Quaternion.Euler(0, -180f, 0))
-        {
-            direction = new Vector3(0, 0, -1f);
-        }
-        else if (transform.rotation == Quaternion.Euler(0, 360f, 0))
-        {
-            direction = new Vector3(0, 0, 1f);
-        }
+        direction = transform.forward.normalized;
     }
 
     // Use this for initialization
@@ -47,13 +33,24 @@ public class ProjectileController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Rigidbody>() != null)
+        if (ofEnemy == null)
         {
-            Destroy(gameObject);
+            if (other.gameObject.GetComponent<Rigidbody>() != null)
+            {
+                Destroy(gameObject);
+            }
+            if (other.gameObject.tag == "Environment")
+            {
+                Destroy(gameObject);
+            }
         }
-        if (other.gameObject.tag == "Environment")
+        else
         {
-            Destroy(gameObject);
+            if(other.gameObject.tag == "Player")
+            {
+                other.GetComponent<PlayerController>().TakeDamage(ofEnemy.GetComponent<EnemyAI>().attack, other.transform.position - ofEnemy.transform.position);
+                Destroy(gameObject);
+            }
         }
     }
 }

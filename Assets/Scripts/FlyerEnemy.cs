@@ -10,6 +10,9 @@ public class FlyerEnemy : EnemyAI
     [SerializeField] int desAttack = 5;
     [SerializeField] int desDefense = 0;
     [SerializeField] float desLookDistance = 15;
+    [SerializeField] float cooldownTime = 1f;
+    [SerializeField] GameObject eProjectile;
+    private bool shootable = true;
 
     // Use this for initialization
     public void Reset()
@@ -35,7 +38,30 @@ public class FlyerEnemy : EnemyAI
 
     public override void Attack()
     {
-        // TODO make projectiles fly towards the player in an angle
+        if (shootable == true)
+        {
+            AttackPattern(0);
+        }
+        StartCoroutine(Cooldown());
+    }
+
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(cooldownTime);
+        shootable = true;
+    }
+
+    void AttackPattern(float angle)
+    {
+        GameObject projectile = Instantiate(eProjectile, transform.position + transform.forward.normalized, transform.rotation);
+        projectile.GetComponent<ProjectileController>().ofEnemy = gameObject;
+        /*
+        projectile = Instantiate(eProjectile, transform.position + transform.forward.normalized, Quaternion.Euler(transform.rotation.x, transform.rotation.y + angle, transform.rotation.z));
+        projectile.GetComponent<ProjectileController>().ofEnemy = gameObject;
+        projectile = Instantiate(eProjectile, transform.position + transform.forward.normalized, Quaternion.Euler(transform.rotation.x, transform.rotation.y - angle, transform.rotation.z));
+        projectile.GetComponent<ProjectileController>().ofEnemy = gameObject;
+        */
+        shootable = false;
     }
 
     public override void Behavior()
@@ -47,7 +73,7 @@ public class FlyerEnemy : EnemyAI
         }
         if (distance.magnitude <= lookDistance / 2)
         {
-            //Attack();
+            Attack();
             nav.destination = transform.position;
         }
         if (distance.magnitude <= lookDistance / 4)
