@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CrawlerEnemy : EnemyAI
 {
+    // give the designer the choice to manipulate attributes
     [SerializeField] int desLevel = 1;
     [SerializeField] int desHealth = 100;
     [SerializeField] int desExpToGive = 3;
@@ -11,7 +12,7 @@ public class CrawlerEnemy : EnemyAI
     [SerializeField] int desDefense = 0;
     [SerializeField] float desLookDistance = 15;
 
-    // Use this for initialization
+    // Overwrites the attributes given of the parent class with the designer choices
     public void Reset()
     {
         level = desLevel;
@@ -26,12 +27,12 @@ public class CrawlerEnemy : EnemyAI
         Reset();
     }
 
-	// Update is called once per frame
 	void Update ()
     {
         Behavior();
     }
 
+    // makes the crawler attack, but also die after attacking
     public override void Attack()
     {
         base.Attack();

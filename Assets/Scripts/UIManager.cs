@@ -17,9 +17,9 @@ public class UIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        // updates the text fields with the right values
         uiHealth.text = player.GetComponent<PlayerController>().health.ToString();
         uiLevel.text = player.GetComponent<PlayerController>().level.ToString();
         uiExp.text = player.GetComponent<PlayerController>().exp.ToString() + " / " + player.GetComponent<PlayerController>().expToNextLevel.ToString();
-
     }
 }

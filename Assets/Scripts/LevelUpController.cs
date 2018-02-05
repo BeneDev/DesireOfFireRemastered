@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class LevelUpController : MonoBehaviour {
 
-    public bool chooseAttack;
-    [SerializeField] GameObject panel;
+    public bool chooseAttack; //a boolean if the player wants to upgrade attack or defense
+    [SerializeField] GameObject panel; //the panel for the level up overlay
     PlayerController player;
 
     private void Start()
@@ -18,7 +18,7 @@ public class LevelUpController : MonoBehaviour {
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            Attack();
+            Attack(); 
         }
         else if(Input.GetKeyDown(KeyCode.E))
         {
@@ -26,13 +26,15 @@ public class LevelUpController : MonoBehaviour {
         }
     }
 
+    //upgrade the attack attribute of the player
     public void Attack()
     {
         panel.SetActive(false);
         Time.timeScale = 1f;
         player.damage += 3;
-    } 
+    }
 
+    //upgrade the defense attribute of the player
     public void Defense()
     {
         panel.SetActive(false);

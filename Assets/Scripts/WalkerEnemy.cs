@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WalkerEnemy : EnemyAI
 {
+    // inspector fields for the designer to manipulate the enemies attributes
     [SerializeField] int desLevel = 1;
     [SerializeField] int desHealth = 100;
     [SerializeField] int desExpToGive = 3;
@@ -11,7 +12,7 @@ public class WalkerEnemy : EnemyAI
     [SerializeField] int desDefense = 0;
     [SerializeField] float desLookDistance = 15;
 
-    // Use this for initialization
+    // Sets the, in the EnemyAI declared, attributes to the ones chosen here from the designer
     public void Reset()
     {
         level = desLevel;

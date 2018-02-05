@@ -3,11 +3,10 @@ using System.Collections;
 
 public class CameraShake : MonoBehaviour
 {
-    // Transform of the camera to shake. Grabs the gameObject's transform
-    // if null.
+    // Transform of the camera to shake. Grabs the gameObject's transform if null
     public Transform camTransform;
 
-    // How long the object should shake for.
+    // How long the camera should shake for.
     public float shakeDuration = 0f;
 
     // Amplitude of the shake. A larger value shakes the camera harder.
@@ -18,6 +17,7 @@ public class CameraShake : MonoBehaviour
 
     void Awake()
     {
+        // grabs the camera transform
         if (camTransform == null)
         {
             camTransform = GetComponent(typeof(Transform)) as Transform;
@@ -26,11 +26,13 @@ public class CameraShake : MonoBehaviour
 
     void OnEnable()
     {
+        //grabs the original position of the camera
         originalPos = camTransform.localPosition;
     }
 
     void Update()
     {
+        //offsets the camera in a certain spherical range
         if (shakeDuration > 0)
         {
             camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
@@ -39,6 +41,7 @@ public class CameraShake : MonoBehaviour
         }
         else
         {
+            //resets the camera to the original position
             shakeDuration = 0f;
             camTransform.localPosition = originalPos;
         }

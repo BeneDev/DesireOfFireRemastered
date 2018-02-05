@@ -5,14 +5,13 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     GameObject player;
-
-	// Use this for initialization
+    
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
-	// Update is called once per frame
 	void Update () {
+        // sticks to the player's position
         transform.position = player.transform.position;
 	}
 }
