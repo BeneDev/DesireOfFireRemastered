@@ -6,29 +6,13 @@ using UnityEngine;
 
 public class FlyerEnemy : EnemyAI
 {
-    // gives the designer the coice to set attributes of the enemy
-    [SerializeField] int desLevel = 1;
-    [SerializeField] int desHealth = 100;
-    [SerializeField] int desExpToGive = 3;
-    [SerializeField] int desAttack = 5;
-    [SerializeField] float desLookDistance = 15;
     [SerializeField] float cooldownTime = 1f;
     [SerializeField] GameObject eProjectile;
     private bool shootable = true;
     
-    // overwrites the attributes given by the parent class
-    public void Reset()
-    {
-        level = desLevel;
-        health = desHealth;
-        expToGive = desExpToGive;
-        attack = desAttack;
-        lookDistance = desLookDistance;
-    }
-    
     void Awake()
     {
-        Reset();
+        aS = GetComponent<AudioSource>();
     }
     
     void Update()

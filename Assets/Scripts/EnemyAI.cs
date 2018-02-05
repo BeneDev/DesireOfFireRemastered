@@ -12,13 +12,16 @@ public class EnemyAI : MonoBehaviour {
 
     protected GameObject player;
     protected NavMeshAgent nav;
-    protected int health = 100;
-    protected int expToGive = 3;
+    public int health = 100;
+    [SerializeField] int expToGive = 3;
     public int attack = 5;
-    protected int level = 1;
-    protected float lookDistance = 15;
+    [SerializeField] int level = 1;
+    public float lookDistance = 15;
     protected Vector3 distance;
     Camera cam;
+
+    protected AudioSource aS;
+    [SerializeField] AudioClip[] audioClip = new AudioClip[2];
 
     // Use this for initialization
     void Start () {
@@ -33,17 +36,25 @@ public class EnemyAI : MonoBehaviour {
 	}
 
     // destroys the enemy and gives the player exp
-    public virtual void HandleDying()
+    protected void HandleDying()
     {
+        PlaySound(1);
         Destroy(gameObject);
         player.GetComponent<PlayerController>().GainExp(expToGive);
     }
 
     // substracts a given parameter from the health value and shakes the camera
-    public virtual void TakeDamage(int damage)
+    protected void TakeDamage(int damage)
     {
+        PlaySound(0);
         health -= damage;
         cam.GetComponent<CameraShake>().shakeDuration = 0.2f;
+    }
+
+    protected void PlaySound(int clip)
+    {
+        aS.clip = audioClip[clip];
+        aS.Play();
     }
 
     // checks if hit by a projectiles and, if so, takes damage and destroys the bullet
