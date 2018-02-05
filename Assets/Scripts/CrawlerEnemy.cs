@@ -15,6 +15,9 @@ public class CrawlerEnemy : EnemyAI
     [SerializeField] int desAttack = 5;
     [SerializeField] float desLookDistance = 15;
 
+    AudioSource aS;
+    [SerializeField] AudioClip[] audioClip;
+
     // Overwrites the attributes given of the parent class with the designer choices
     public void Reset()
     {
@@ -23,14 +26,22 @@ public class CrawlerEnemy : EnemyAI
         expToGive = desExpToGive;
         attack = desAttack;
         lookDistance = desLookDistance;
+        
 	}
+
+    void PlaySound(int clip)
+    {
+        aS.clip = audioClip[clip];
+        aS.Play();
+    }
 
     void Awake()
     {
         Reset();
+        aS = GetComponent<AudioSource>();
     }
 
-	void Update ()
+    void Update ()
     {
         Behavior();
     }
@@ -42,4 +53,16 @@ public class CrawlerEnemy : EnemyAI
         HandleDying();
     }
 
+    public override void TakeDamage(int damage)
+    {
+        PlaySound(0);
+        base.TakeDamage(damage);
+    }
+
+    
+    public override void HandleDying()
+    {
+        PlaySound(1);
+        base.HandleDying();
+    }
 }

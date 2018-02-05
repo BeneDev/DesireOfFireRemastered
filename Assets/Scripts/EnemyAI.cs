@@ -33,14 +33,14 @@ public class EnemyAI : MonoBehaviour {
 	}
 
     // destroys the enemy and gives the player exp
-    protected void HandleDying()
+    public virtual void HandleDying()
     {
         Destroy(gameObject);
         player.GetComponent<PlayerController>().GainExp(expToGive);
     }
 
     // substracts a given parameter from the health value and shakes the camera
-    protected void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         health -= damage;
         cam.GetComponent<CameraShake>().shakeDuration = 0.2f;

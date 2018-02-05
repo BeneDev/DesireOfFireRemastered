@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour {
     Vector3 moveDirection;
     Vector3 fwd;
     Rigidbody rb;
+    AudioSource aS;
+
+    [SerializeField] AudioClip[] audioClip;
 
     private void Awake()
     {
@@ -43,11 +46,18 @@ public class PlayerController : MonoBehaviour {
         defense = baseDefense;
     }
 
+    public void PlaySound(int clip)
+    {
+        aS.clip = audioClip[clip];
+        aS.Play();
+    }
+
     // Use this for initialization
     void Start () {
         // gets the right components loaded into the right variables
         rb = GetComponent<Rigidbody>();
         cam = Camera.main;
+        aS = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -60,12 +70,20 @@ public class PlayerController : MonoBehaviour {
         }
         if(health <= 0)
         {
-            health = 0;
-            SceneManager.LoadScene(2);
+            LoadGameOver();
+        }
+        if(health <= 30)
+        {
+            //PlaySound(3);
         }
     }
 
-    
+    void LoadGameOver()
+    {
+        health = 0;
+        SceneManager.LoadScene(2);
+    }
+
     // A method for turning to the direction of travel instead of the direction of shooting
     // TODO combine this with the direction of shooting, so the player uses this when not attacking and direction of attack when doing so
     void TurnDirection(float p_h, float p_v)
@@ -92,6 +110,7 @@ public class PlayerController : MonoBehaviour {
     // Manipulates the player's attributes regarding the level up
     private void LevelUp()
     {
+        PlaySound(0);
         // stops the camera from shaking
         cam.GetComponent<CameraShake>().shakeDuration = 0;
         // stops the game from running while choosing an attribute to upgrade
@@ -122,6 +141,7 @@ public class PlayerController : MonoBehaviour {
         // a variable to store the damage taken
         int substract = p_damage;
         // substracts the defense if the result is over 0 still, otherwise the damage is 1
+        PlaySound(1);
         if(defense < substract)
         {
             substract = p_damage - defense;
