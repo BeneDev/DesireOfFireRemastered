@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The Script, controlling the Projectiles, applying the velocity and colliding with objects, maybe dealing damage
+/// </summary>
+
 public class ProjectileController : MonoBehaviour {
 
     Vector3 direction;

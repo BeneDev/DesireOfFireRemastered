@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// The Script, managing the UI for gameplay, including health, exp and level
+/// </summary>
+
 public class UIManager : MonoBehaviour {
 
     GameObject player;

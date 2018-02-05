@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// The Script, controlling the logic behind the gameover screen
+/// </summary>
+
 public class GameOverController : MonoBehaviour {
 
     // lets the player try again

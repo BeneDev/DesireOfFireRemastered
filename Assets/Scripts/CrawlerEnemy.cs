@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The Script, defining the Crawler enemy type, inheriting from EnemyAI
+/// </summary>
+
 public class CrawlerEnemy : EnemyAI
 {
     // give the designer the choice to manipulate attributes

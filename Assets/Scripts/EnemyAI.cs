@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// The base Script from which all enemies inherit
+/// </summary>
+
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyAI : MonoBehaviour {
 

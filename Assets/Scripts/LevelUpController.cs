@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// The Script, controlling the panel which shows up when the player leveled up
+/// </summary>
+
 public class LevelUpController : MonoBehaviour {
 
     public bool chooseAttack; //a boolean if the player wants to upgrade attack or defense

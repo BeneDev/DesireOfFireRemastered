@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The Script, setting the camera arm to the transform of the player
+/// </summary>
+
 public class CameraController : MonoBehaviour {
 
     GameObject player;

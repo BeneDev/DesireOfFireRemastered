@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The Script, defining the walker enemy type, inheriting from the EnemyUI class
+/// </summary>
+
 public class WalkerEnemy : EnemyAI
 {
     // inspector fields for the designer to manipulate the enemies attributes

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// The script, containing the logic behind the Main menu screen
+/// </summary>
+
 public class MenuController : MonoBehaviour {
 
     // loads the scene

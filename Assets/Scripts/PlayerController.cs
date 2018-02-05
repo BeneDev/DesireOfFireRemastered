@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The Script, controlling the player, reading input, managing attributes, shooting, leveling up, taking damage, gaining exp and dying
+/// </summary>
+
 public class PlayerController : MonoBehaviour {
 
     Camera cam;

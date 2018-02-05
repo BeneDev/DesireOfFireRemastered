@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>The class defining the Flyer enemy Type, inheriting from the EnemyAI class</summary>
+
 public class FlyerEnemy : EnemyAI
 {
     // gives the designer the coice to set attributes of the enemy
