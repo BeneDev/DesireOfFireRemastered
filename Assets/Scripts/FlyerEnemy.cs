@@ -70,17 +70,20 @@ public class FlyerEnemy : EnemyAI
         if (distance.magnitude <= lookDistance)
         {
             nav.destination = player.transform.position;
+            transform.LookAt(player.transform);
         }
         // attacks if player close enough for that
         if (distance.magnitude <= lookDistance / 2)
         {
             nav.destination = transform.position;
+            transform.LookAt(player.transform);
             Attack();
         }
         // walks away if player is too close
         if (distance.magnitude <= lookDistance / 4)
         {
             nav.destination = transform.position + (-distance.normalized) * 4;
+            transform.LookAt(player.transform);
         }
         // dies if health is 0 or below
         if (health <= 0)
