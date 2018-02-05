@@ -13,7 +13,6 @@ public class WalkerEnemy : EnemyAI
     [SerializeField] int desHealth = 100;
     [SerializeField] int desExpToGive = 3;
     [SerializeField] int desAttack = 5;
-    [SerializeField] int desDefense = 0;
     [SerializeField] float desLookDistance = 15;
 
     // Sets the, in the EnemyAI declared, attributes to the ones chosen here from the designer

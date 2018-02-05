@@ -11,7 +11,6 @@ public class FlyerEnemy : EnemyAI
     [SerializeField] int desHealth = 100;
     [SerializeField] int desExpToGive = 3;
     [SerializeField] int desAttack = 5;
-    [SerializeField] int desDefense = 0;
     [SerializeField] float desLookDistance = 15;
     [SerializeField] float cooldownTime = 1f;
     [SerializeField] GameObject eProjectile;
@@ -43,13 +42,14 @@ public class FlyerEnemy : EnemyAI
         if (shootable == true)
         {
             AttackPattern(0);
+            StartCoroutine(Cooldown());
         }
-        StartCoroutine(Cooldown());
     }
 
     // counts down the cooldown time and enables the enemy to shoot again after that time
     IEnumerator Cooldown()
     {
+        print("actually cooling down");
         yield return new WaitForSeconds(cooldownTime);
         shootable = true;
     }
@@ -59,12 +59,6 @@ public class FlyerEnemy : EnemyAI
     {
         GameObject projectile = Instantiate(eProjectile, transform.position + transform.forward.normalized, transform.rotation);
         projectile.GetComponent<ProjectileController>().ofEnemy = gameObject;
-        /*
-        projectile = Instantiate(eProjectile, transform.position + transform.forward.normalized, Quaternion.Euler(transform.rotation.x, transform.rotation.y + angle, transform.rotation.z));
-        projectile.GetComponent<ProjectileController>().ofEnemy = gameObject;
-        projectile = Instantiate(eProjectile, transform.position + transform.forward.normalized, Quaternion.Euler(transform.rotation.x, transform.rotation.y - angle, transform.rotation.z));
-        projectile.GetComponent<ProjectileController>().ofEnemy = gameObject;
-        */
         shootable = false;
     }
 
@@ -80,8 +74,8 @@ public class FlyerEnemy : EnemyAI
         // attacks if player close enough for that
         if (distance.magnitude <= lookDistance / 2)
         {
-            Attack();
             nav.destination = transform.position;
+            Attack();
         }
         // walks away if player is too close
         if (distance.magnitude <= lookDistance / 4)

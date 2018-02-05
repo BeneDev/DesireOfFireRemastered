@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// The Script, controlling the player, reading input, managing attributes, shooting, leveling up, taking damage, gaining exp and dying
@@ -29,7 +30,6 @@ public class PlayerController : MonoBehaviour {
 
     //the panel which gets called when leveling up
     [SerializeField] GameObject levelupPanel;
-    LevelUpController lvlup;
 
     Vector3 moveDirection;
     Vector3 fwd;
@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         // gets the right components loaded into the right variables
         rb = GetComponent<Rigidbody>();
-        lvlup = levelupPanel.transform.parent.gameObject.GetComponent<LevelUpController>();
         cam = Camera.main;
     }
 	
@@ -59,11 +58,16 @@ public class PlayerController : MonoBehaviour {
         {
             LevelUp();
         }
+        if(health <= 0)
+        {
+            health = 0;
+            SceneManager.LoadScene(2);
+        }
     }
 
-    /*
-     * A method for turning to the direction of travel instead of the direction of shooting
-     * TODO combine this with the direction of shooting, so the player uses this when not attacking and direction of attack when doing so
+    
+    // A method for turning to the direction of travel instead of the direction of shooting
+    // TODO combine this with the direction of shooting, so the player uses this when not attacking and direction of attack when doing so
     void TurnDirection(float p_h, float p_v)
     {
         if(Input.GetKey(KeyCode.D) && transform.rotation != Quaternion.Euler(0, 360f, 0))
@@ -83,7 +87,7 @@ public class PlayerController : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0, 90f, 0);
         }
     }
-    */
+    
 
     // Manipulates the player's attributes regarding the level up
     private void LevelUp()
@@ -145,28 +149,28 @@ public class PlayerController : MonoBehaviour {
             // updates the forward vector
             fwd = transform.forward;
             // intantiates the projectile
-            GameObject projectile = Instantiate(projectilePrefab, transform.position + fwd.normalized, proRot);
+            Instantiate(projectilePrefab, transform.position + fwd.normalized, proRot);
         }
         else if(Input.GetKeyDown(KeyCode.DownArrow))
         {
             Quaternion proRot = Quaternion.Euler(0, 90f, 0);
             transform.rotation = proRot;
             fwd = transform.forward;
-            GameObject projectile = Instantiate(projectilePrefab, transform.position + fwd.normalized, proRot);
+            Instantiate(projectilePrefab, transform.position + fwd.normalized, proRot);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             Quaternion proRot = Quaternion.Euler(0, -180f, 0);
             transform.rotation = proRot;
             fwd = transform.forward;
-            GameObject projectile = Instantiate(projectilePrefab, transform.position + fwd.normalized, proRot);
+            Instantiate(projectilePrefab, transform.position + fwd.normalized, proRot);
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             Quaternion proRot = Quaternion.Euler(0, 360f, 0);
             transform.rotation = proRot;
             fwd = transform.forward;
-            GameObject projectile = Instantiate(projectilePrefab, transform.position + fwd.normalized, proRot);
+            Instantiate(projectilePrefab, transform.position + fwd.normalized, proRot);
         }
     }
 

@@ -13,7 +13,6 @@ public class CrawlerEnemy : EnemyAI
     [SerializeField] int desHealth = 100;
     [SerializeField] int desExpToGive = 3;
     [SerializeField] int desAttack = 5;
-    [SerializeField] int desDefense = 0;
     [SerializeField] float desLookDistance = 15;
 
     // Overwrites the attributes given of the parent class with the designer choices
