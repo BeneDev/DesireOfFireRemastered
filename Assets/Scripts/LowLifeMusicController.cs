@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// This Scripts soley task is to play the heartbeat sound when the player is on low health
+/// </summary>
+
 public class LowLifeMusicController : MonoBehaviour {
 
     GameObject player;
     AudioSource aS;
 
-	// Use this for initialization
 	void Start () {
         aS = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
-	// Update is called once per frame
+	// Plays the heartbeat sound if player health is below 30 and stops if above
 	void Update () {
 		if(player.GetComponent<PlayerController>().health <= 30 && !aS.isPlaying)
         {
