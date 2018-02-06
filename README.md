@@ -7,3 +7,5 @@ and can be played for free by clicking here: https://bene-dev.itch.io/desire-of-
 The remastered Version benefits of the advantages, Unity gives, in comparison to Pico-8.
 
 Though this is still a Work in Progress, you are welcome to try out the current version and give feedback.
+
+Created by Aaron, Viktoria, Daniel, Benedikt.
